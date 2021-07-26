@@ -11,3 +11,9 @@ exports.randomNumber = functions.https.onRequest((request, response) => {
 exports.toMyWebsite = functions.https.onRequest((request, response) => {
   response.redirect("https://weerayoothm.github.io");
 });
+
+// http callable function
+exports.sayHello = functions.https.onCall((data, context) => {
+  const { name } = data;
+  return `Hello, ${name}`;
+});
