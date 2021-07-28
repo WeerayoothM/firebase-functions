@@ -17,3 +17,14 @@ exports.sayHello = functions.https.onCall((data, context) => {
   const { name } = data;
   return `Hello, ${name}`;
 });
+
+// Auth trigger when event occurs then invoke a cloud function todo sth
+// Auth trigger (new user signup)
+exports.newUserSignUp = functions.auth.user().onCreate((user) => {
+  console.log("user created", user.email, user.uid);
+});
+
+// Auth trigger (user deleted)
+exports.userDeleted = functions.auth.user().onDelete((user) => {
+  console.log("user deleted", user.email, user.uid);
+});
