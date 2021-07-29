@@ -15,5 +15,6 @@ module.exports = {
     ],
     "object-curly-spacing": ["error", "always", { arraysInObjects: true }],
     "quote-props": ["error", "as-needed"],
+    indent: ["error", 2],
   },
 };
