@@ -3,8 +3,20 @@ var app = new Vue({
   data: {
     requests: [],
   },
+  methods: {
+    upvoteRequest(id) {
+      console.log(id);
+      const upvote = firebase.functions().httpsCallable("upvote");
+      upvote({ id }).catch((error) => {
+        console.log(error.message);
+      });
+    },
+  },
   mounted() {
-    const ref = firebase.firestore().collection("requests");
+    const ref = firebase
+      .firestore()
+      .collection("requests")
+      .orderBy("upvotes", "desc");
 
     // callback function everytime a change in this collection occurs
     ref.onSnapshot((snapshot) => {

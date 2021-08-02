@@ -87,6 +87,7 @@ exports.upvote = functions.https.onCall((data, context) => {
       })
       .then(() => {
         // update the votes on the request
+        // best pratice to increment
         return request.update({
           upvotes: admin.firestore.FieldValue.increment(1),
         });
