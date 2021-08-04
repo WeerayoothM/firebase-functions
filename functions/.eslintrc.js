@@ -16,5 +16,9 @@ module.exports = {
     "object-curly-spacing": ["error", "always", { arraysInObjects: true }],
     "quote-props": ["error", "as-needed"],
     indent: ["error", 2],
+    "prefer-arrow-callback": ["error", { allowNamedFunctions: false }],
+  },
+  parserOptions: {
+    ecmaVersion: 6,
   },
 };
